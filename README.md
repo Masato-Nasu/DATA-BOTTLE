@@ -48,6 +48,66 @@ MOBILE DATA と OPENAI API は100%を超えても同じボトルで表現しま�
 - 180% → 下80%が超過色
 - 230% → 超過色で満水後、通常色が底から30%ぶん置き換える
 
+## Android permissions
+
+DATA BOTTLE は、必要以上の端末権限を要求しない方針で作っています。現在の `AndroidManifest.xml` で宣言している権限は次の2つです。
+
+### Internet access
+
+```text
+android.permission.INTERNET
+```
+
+OPENAI API ボトルで OpenAI のAPIへ接続するために使用します。
+
+BATTERY / STORAGE / MEMORY / BRIGHTNESS / VOLUME など、端末内だけで取得できるデータの表示そのものにインターネット通信は必要ありません。
+
+### Usage access
+
+```text
+android.permission.PACKAGE_USAGE_STATS
+```
+
+**MOBILE DATA** ボトルで端末全体のモバイル通信量を取得するために使用します。
+
+この権限は通常のポップアップ型許可ではなく、ユーザー自身がAndroidの設定画面から **「使用状況へのアクセス」** をDATA BOTTLEに許可する必要があります。
+
+DATA BOTTLEでは次の手順で設定できます。
+
+```text
+SET → MOBILE DATA → GRANT
+```
+
+Androidの設定画面が開いたら、**DATA BOTTLE** の使用状況アクセスを許可してください。
+
+許可しない場合でもアプリ自体は利用できます。**MOBILE DATAの自動取得だけが利用できません。**
+
+### Accelerometer
+
+DATA BOTTLEは、端末を傾けたときにデータの液面を重力方向へ動かすため、加速度センサーを使用します。
+
+Manifestでは次の端末機能を任意機能として宣言しています。
+
+```text
+android.hardware.sensor.accelerometer
+```
+
+`required="false"` のため、加速度センサーを必須条件にはしていません。また、加速度センサー利用のためにユーザーへ追加の実行時権限ダイアログを表示することはありません。
+
+### Permissions not requested
+
+現在のDATA BOTTLEは、次の権限を要求していません。
+
+- カメラ
+- マイク
+- 位置情報
+- 連絡先
+- SMS
+- 通話履歴
+- 写真 / 動画ライブラリへのアクセス
+
+つまり通常利用では追加許可をほとんど必要とせず、特別な設定が必要なのは主に **MOBILE DATAの「使用状況へのアクセス」** です。
+
 ## MOBILE DATA
 
 端末全体のモバイル通信量を取得するには Android の「使用状況へのアクセス」が必要です。
