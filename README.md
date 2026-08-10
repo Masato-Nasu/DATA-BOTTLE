@@ -8,6 +8,10 @@ DATA BOTTLE は、スマホの状態やサービスの使用量を高密度ド�
   <img src="docs/screenshot.png" width="360" alt="DATA BOTTLE screenshot showing MOBILE DATA as a flat dot-liquid surface">
 </p>
 
+<p align="center">
+  <a href="https://github.com/Masato-Nasu/DATA-BOTTLE/releases/download/v0.1.7/DATA-BOTTLE-v0.1.7-release.apk"><strong>Download signed APK — v0.1.7</strong></a>
+</p>
+
 ## v0.1.7 — pixel-flat rest surface
 
 - **静止時:** 波とメニスカスをゼロにし、微小なセンサー角度ノイズを丸めます。
@@ -75,6 +79,8 @@ Unblock-File .\BUILD_DATA_BOTTLE.ps1
 ```text
 DATA-BOTTLE-v0.1.7-debug.apk
 ```
+
+配布用の署名済みAPKは GitHub Releases の `DATA-BOTTLE-v0.1.7-release.apk` を使用してください。
 
 ## Widget
 
